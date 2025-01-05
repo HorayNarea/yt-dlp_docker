@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+from pathlib import Path
+import sys
+
+if len(sys.argv) != 2:
+    print("Wrong arguments!")
+    sys.exit(1)
+
+p = Path(sys.argv[1])
+if p.is_file():
+    nameparts = p.stem.split("[")
+
+    title = "[".join(nameparts[0:-1]).strip()
+    video_id = nameparts[-1].strip("v").strip("]")
+
+    target = p.with_stem(f"{video_id} - {title}")
+
+#    print(target)
+    p.rename(target)
