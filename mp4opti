@@ -9,6 +9,7 @@ function rename() {
 
 function convert() {
   for f in *.mp4; do
+#    ab-av1 auto-encode --encoder libx265 --enc movflags=+faststart --input $f --output ../$f || exit 1
     ffmpeg -hide_banner -i $f -c:a copy -c:v libx265 -movflags +faststart ../$f || exit 1
 
     rm $f
