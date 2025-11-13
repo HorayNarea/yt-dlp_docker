@@ -27,6 +27,7 @@ RUN pacman -Syu --noconfirm \
         python-zstandard \
         rtmpdump \
         yt-dlp \
+        yt-dlp-ejs \
         zsh && \
     rm -rf /var/cache/pacman/pkg/*
 
